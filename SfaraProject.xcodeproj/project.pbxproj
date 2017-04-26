@@ -108,7 +108,6 @@
 		76446BA71EB01CA700FF3711 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				76446B851EB01C3200FF3711 /* ViewController.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -116,6 +115,7 @@
 		76446BA81EB01CAB00FF3711 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				76446B851EB01C3200FF3711 /* ViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
