@@ -10,13 +10,28 @@ import Foundation
 
 struct Place {
     
-    fileprivate var location: String?
-    fileprivate var temperature: Double?
-    fileprivate var forecast: String?
-    fileprivate var time: String?
+    private(set) var location: String?
+    private(set) var temperature: Double?
+    private(set) var forecast: String?
+    private(set) var time: String?
+    private(set) var date: String?
     
     init() {
         
+    }
+    
+    func displayLocationAndTime() -> String {
+        guard self.time != nil && self.date != nil else {
+            return "Unable to location the date and time"
+        }
+        return "\(date), \(time)"
+    }
+    
+    func displayTemperatureAndLocation() -> String {
+        guard self.location != nil && self.temperature != nil else {
+            return "Unable to location the date and time"
+        }
+        return "\(temperature), \(location)"
     }
     
 }

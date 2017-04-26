@@ -65,6 +65,11 @@
                                                 <constraint firstItem="25d-pl-EfB" firstAttribute="centerY" secondItem="9EJ-F3-8Ya" secondAttribute="centerY" id="yXP-RN-nqg"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="dateLabel" destination="EDF-i2-iIN" id="CaV-dT-hiL"/>
+                                            <outlet property="temperatureCityLabel" destination="mvV-2Z-Eeg" id="jbK-AA-DcL"/>
+                                            <outlet property="weatherImage" destination="25d-pl-EfB" id="Nd6-t2-2w9"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
