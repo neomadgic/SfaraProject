@@ -22,15 +22,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="3Fa-Te-9cZ">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="333.5"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="3Fa-Te-9cZ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="334"/>
                             </mapView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MC6-tI-7Xk">
+                                <rect key="frame" x="0.0" y="333.5" width="375" height="333.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="n2a-c4-C8R">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="n2a-c4-C8R" id="9EJ-F3-8Ya">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="MC6-tI-7Xk" firstAttribute="top" secondItem="3Fa-Te-9cZ" secondAttribute="bottom" id="0MT-c2-1JT"/>
                             <constraint firstItem="3Fa-Te-9cZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="2lD-H2-E0l"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="3Fa-Te-9cZ" secondAttribute="bottom" multiplier="2" id="6eR-4b-FF8"/>
+                            <constraint firstItem="MC6-tI-7Xk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="f0y-JX-Sj0"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="MC6-tI-7Xk" secondAttribute="bottom" id="g5S-iT-evG"/>
                             <constraint firstItem="3Fa-Te-9cZ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="gxs-Ao-tCh"/>
+                            <constraint firstAttribute="trailing" secondItem="MC6-tI-7Xk" secondAttribute="trailing" id="uBk-Qd-J6L"/>
                             <constraint firstAttribute="trailing" secondItem="3Fa-Te-9cZ" secondAttribute="trailing" id="z3O-9z-Wfy"/>
                         </constraints>
                     </view>
