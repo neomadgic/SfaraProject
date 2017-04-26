@@ -6,7 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,19 +22,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="3Fa-Te-9cZ" customClass="CurrentMapView" customModule="SfaraProject" customModuleProvider="target">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="3Fa-Te-9cZ" customClass="CurrentMapView" customModule="SfaraProject" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="334"/>
                             </mapView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MC6-tI-7Xk">
-                                <rect key="frame" x="0.0" y="333.5" width="375" height="333.5"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="77" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MC6-tI-7Xk">
+                                <rect key="frame" x="0.0" y="334" width="375" height="333"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HistoryCell" id="n2a-c4-C8R" customClass="HistoryCell" customModule="SfaraProject" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HistoryCell" rowHeight="61" id="n2a-c4-C8R" customClass="HistoryCell" customModule="SfaraProject" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="61"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="n2a-c4-C8R" id="9EJ-F3-8Ya">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="25d-pl-EfB">
+                                                    <rect key="frame" x="8" y="5" width="50" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="50" id="5xz-VR-MsC"/>
+                                                        <constraint firstAttribute="height" constant="50" id="YGX-f0-cHa"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="March 22nd, 12:15PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="EDF-i2-iIN">
+                                                    <rect key="frame" x="66" y="5" width="301" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="76, Austin, TX" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="mvV-2Z-Eeg">
+                                                    <rect key="frame" x="66" y="37" width="301" height="18"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="EDF-i2-iIN" firstAttribute="top" secondItem="9EJ-F3-8Ya" secondAttribute="top" constant="5" id="1Zv-XZ-1Ke"/>
+                                                <constraint firstItem="25d-pl-EfB" firstAttribute="leading" secondItem="9EJ-F3-8Ya" secondAttribute="leading" constant="8" id="5Cn-zD-Ztf"/>
+                                                <constraint firstAttribute="trailing" secondItem="EDF-i2-iIN" secondAttribute="trailing" constant="8" id="SoR-0E-Soe"/>
+                                                <constraint firstItem="EDF-i2-iIN" firstAttribute="leading" secondItem="25d-pl-EfB" secondAttribute="trailing" constant="8" id="eHE-mf-rZs"/>
+                                                <constraint firstItem="25d-pl-EfB" firstAttribute="centerY" secondItem="9EJ-F3-8Ya" secondAttribute="centerY" id="yXP-RN-nqg"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
@@ -42,12 +71,12 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="MC6-tI-7Xk" firstAttribute="top" secondItem="3Fa-Te-9cZ" secondAttribute="bottom" id="0MT-c2-1JT"/>
                             <constraint firstItem="3Fa-Te-9cZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="2lD-H2-E0l"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="3Fa-Te-9cZ" secondAttribute="bottom" multiplier="2" id="6eR-4b-FF8"/>
+                            <constraint firstItem="MC6-tI-7Xk" firstAttribute="top" secondItem="3Fa-Te-9cZ" secondAttribute="bottom" id="Bm4-pp-6yo"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="MC6-tI-7Xk" secondAttribute="bottom" id="KJF-Sh-t2m"/>
                             <constraint firstItem="MC6-tI-7Xk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="f0y-JX-Sj0"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="MC6-tI-7Xk" secondAttribute="bottom" id="g5S-iT-evG"/>
-                            <constraint firstItem="3Fa-Te-9cZ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="gxs-Ao-tCh"/>
+                            <constraint firstItem="3Fa-Te-9cZ" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="lHV-iW-nDu"/>
+                            <constraint firstItem="3Fa-Te-9cZ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="mDq-P9-SAM"/>
                             <constraint firstAttribute="trailing" secondItem="MC6-tI-7Xk" secondAttribute="trailing" id="uBk-Qd-J6L"/>
                             <constraint firstAttribute="trailing" secondItem="3Fa-Te-9cZ" secondAttribute="trailing" id="z3O-9z-Wfy"/>
                         </constraints>
