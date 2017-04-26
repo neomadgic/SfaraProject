@@ -79,13 +79,12 @@
 		76446B821EB01C3200FF3711 /* SfaraProject */ = {
 			isa = PBXGroup;
 			children = (
-				76446B831EB01C3200FF3711 /* AppDelegate.swift */,
-				76446B851EB01C3200FF3711 /* ViewController.swift */,
+				76446BA91EB01CB000FF3711 /* Essentials */,
+				76446BA61EB01CA100FF3711 /* Model */,
+				76446BA71EB01CA700FF3711 /* View */,
+				76446BA81EB01CAB00FF3711 /* Controller */,
 				76446B871EB01C3200FF3711 /* Main.storyboard */,
-				76446B8D1EB01C3200FF3711 /* Assets.xcassets */,
 				76446B8F1EB01C3200FF3711 /* LaunchScreen.storyboard */,
-				76446B921EB01C3200FF3711 /* Info.plist */,
-				76446B8A1EB01C3200FF3711 /* SfaraProject.xcdatamodeld */,
 			);
 			path = SfaraProject;
 			sourceTree = "<group>";
@@ -97,6 +96,39 @@
 				76446B9D1EB01C3200FF3711 /* Info.plist */,
 			);
 			path = SfaraProjectTests;
+			sourceTree = "<group>";
+		};
+		76446BA61EB01CA100FF3711 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		76446BA71EB01CA700FF3711 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				76446B851EB01C3200FF3711 /* ViewController.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		76446BA81EB01CAB00FF3711 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		76446BA91EB01CB000FF3711 /* Essentials */ = {
+			isa = PBXGroup;
+			children = (
+				76446B831EB01C3200FF3711 /* AppDelegate.swift */,
+				76446B8D1EB01C3200FF3711 /* Assets.xcassets */,
+				76446B921EB01C3200FF3711 /* Info.plist */,
+				76446B8A1EB01C3200FF3711 /* SfaraProject.xcdatamodeld */,
+			);
+			name = Essentials;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -416,6 +448,7 @@
 				76446BA21EB01C3200FF3711 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		76446BA31EB01C3200FF3711 /* Build configuration list for PBXNativeTarget "SfaraProjectTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +457,7 @@
 				76446BA51EB01C3200FF3711 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
