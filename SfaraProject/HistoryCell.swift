@@ -19,8 +19,12 @@ class HistoryCell: UITableViewCell {
     }
     
     func configureCell(with: Place) {
+        
+        // Set the Labels
         dateLabel.text = with.displayDateAndTime()
         temperatureCityLabel.text = with.displayTemperatureAndLocation()
+        
+        // Set the Image
         weatherImage.image = UIImage(named: "\(with.forecast)")
     }
 

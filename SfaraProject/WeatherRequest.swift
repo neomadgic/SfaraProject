@@ -1,0 +1,37 @@
+//
+//  WeatherRequest.swift
+//  SfaraProject
+//
+//  Created by Vu Dang on 4/27/17.
+//  Copyright © 2017 Vu Dang. All rights reserved.
+//
+
+import Foundation
+
+/**
+ *  Struct that builds the URL to send to the server for parsing. Call the getter to URL for the fully qualified URL
+ */
+
+struct WeatherRequest {
+    /// API Key to be used in the application
+    private let APIKey = "189b51bbd050fc21"
+    
+    /// The zip code to send to the server.
+    var zipCode: String
+    
+    var URL: Foundation.URL? {
+        get {
+
+            var urlComponents = URLComponents()
+            urlComponents.scheme = "https"
+            urlComponents.host = "api.wunderground.com"
+            urlComponents.path = "/api/\(APIKey)/conditions/hourly/q/\(zipCode).json"
+            
+            return urlComponents.url
+        }
+    }
+    
+    init(zipCode: String) {
+        self.zipCode = zipCode
+    }
+}
