@@ -61,11 +61,13 @@ class Place {
             let dateAndTime = FormatPlaceHelper.currentDateAndTimeAsString()
             let temperatureAsString = FormatPlaceHelper.temperatureToString(from: temperature)
             
-            print(location)
-            print(temperature)
-            print(forecast)
-            print(dateAndTime)
-            print(temperatureAsString)
+//            print(location)
+//            print(temperature)
+//            print(forecast)
+//            print(dateAndTime)
+//            print(temperatureAsString)
+            
+            print(json)
             
             self.location = location
             self.temperature = temperatureAsString

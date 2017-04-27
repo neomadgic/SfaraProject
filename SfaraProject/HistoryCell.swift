@@ -26,8 +26,7 @@ class HistoryCell: UITableViewCell {
         
         // Set the Image
         if with.forecast != nil {
-            weatherImage.image = UIImage(named: "\(with.forecast!)")
+            weatherImage.image = UIImage(named: "\(FormatPlaceHelper.modifyForecast(from: with.forecast!))")
         }
     }
-
 }
