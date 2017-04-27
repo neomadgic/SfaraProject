@@ -21,7 +21,7 @@ class HistoryCell: UITableViewCell {
     func configureCell(with: Place) {
         
         // Set the Labels
-        dateLabel.text = with.displayDateAndTime()
+        dateLabel.text = with.dateAndTime
         temperatureCityLabel.text = with.displayTemperatureAndLocation()
         
         // Set the Image

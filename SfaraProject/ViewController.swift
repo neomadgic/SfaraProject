@@ -19,6 +19,7 @@ class ViewController: UIViewController, MKMapViewDelegate, UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self
+        WeatherRequest(zipCode: "78653").downloadCurrentWeather()
     }
     
 }
@@ -56,7 +57,7 @@ extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryCell") as? HistoryCell {
-            cell.configureCell(with: Place(location: "Austin, TX", temperature: 76, forecast: "sunny", time: "10:00AM", date: "March 22nd"))
+            cell.configureCell(with: Place(location: "Austin, TX", temperature: "76", forecast: "sunny", dateAndTime: "Mar 13, 2016 10:30PM"))
             return cell
         } else {
             return HistoryCell()

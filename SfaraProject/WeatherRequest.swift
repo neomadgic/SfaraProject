@@ -34,4 +34,36 @@ struct WeatherRequest {
     init(zipCode: String) {
         self.zipCode = zipCode
     }
+    
+    func downloadCurrentWeather() {
+        
+        let task = URLSession.shared.dataTask(with: URL!) { data, response, error in
+            guard error == nil else {
+                print(error!)
+                return
+            }
+            guard let data = data else {
+                print("Data is empty")
+                return
+            }
+            
+            let json = try! JSONSerialization.jsonObject(with: data, options: []) as! [String:Any]
+            let currentObservations = json["current_observation"] as! [String:Any]
+            let displayLocation = currentObservations["display_location"] as! [String:Any]
+            let location = displayLocation["full"] as! String
+            let temperature = currentObservations["temp_f"] as! Double
+            let forecast = currentObservations["weather"] as! String
+            let dateAndTime = FormatPlaceHelper.currentDateAndTimeAsString()
+            let temperatureAsString = FormatPlaceHelper.temperatureToString(from: temperature)
+            
+            print(location)
+            print(temperature)
+            print(forecast)
+            print(dateAndTime)
+            print(temperatureAsString)
+            
+        }
+        
+        task.resume()
+    }
 }

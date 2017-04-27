@@ -11,25 +11,15 @@ import Foundation
 struct Place {
     
     private(set) var location: String
-    private(set) var temperature: Double
+    private(set) var temperature: String
     private(set) var forecast: String
-    private(set) var time: String
-    private(set) var date: String
+    private(set) var dateAndTime: String
     
-    init(location: String, temperature: Double, forecast: String, time: String, date: String) {
+    init(location: String, temperature: String, forecast: String, dateAndTime: String) {
         self.location = location
         self.temperature = temperature
         self.forecast = forecast
-        self.time = time
-        self.date = date
-    }
-    
-    // Return date and time
-    func displayDateAndTime() -> String {
-//        guard self.time != nil && self.date != nil else {
-//            return "Unable to location the date and time"
-//        }
-        return "\(date), \(time)"
+        self.dateAndTime = dateAndTime
     }
     
     // Return temperature and Location
