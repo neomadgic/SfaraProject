@@ -19,7 +19,7 @@ class HistoryCell: UITableViewCell {
     }
     
     func configureCell(with: Place) {
-        dateLabel.text = with.displayLocationAndTime()
+        dateLabel.text = with.displayDateAndTime()
         temperatureCityLabel.text = with.displayTemperatureAndLocation()
     }
 

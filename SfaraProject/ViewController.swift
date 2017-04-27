@@ -12,6 +12,7 @@ import MapKit
 class ViewController: UIViewController, MKMapViewDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var historyTableView: UITableView!
     
     let locationManager = CLLocationManager()
     
@@ -21,6 +22,8 @@ class ViewController: UIViewController, MKMapViewDelegate {
     }
     
 }
+
+// MARK: - CLLocationManager Extension to display current location of user on the map
 
 extension ViewController: CLLocationManagerDelegate {
     
@@ -37,3 +40,5 @@ extension ViewController: CLLocationManagerDelegate {
         mapView.setRegion(coordinateRegion, animated: false)
     }
 }
+
+// MARK: - Table View Methods

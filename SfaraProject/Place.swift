@@ -20,13 +20,15 @@ struct Place {
         
     }
     
-    func displayLocationAndTime() -> String {
+    // Return date and time
+    func displayDateAndTime() -> String {
         guard self.time != nil && self.date != nil else {
             return "Unable to location the date and time"
         }
         return "\(date), \(time)"
     }
     
+    // Return temperature and Location
     func displayTemperatureAndLocation() -> String {
         guard self.location != nil && self.temperature != nil else {
             return "Unable to location the date and time"

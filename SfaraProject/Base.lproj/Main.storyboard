@@ -33,7 +33,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="61"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="n2a-c4-C8R" id="9EJ-F3-8Ya">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="25d-pl-EfB">
@@ -72,6 +72,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="EOh-mt-fwU"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="hbD-N0-jbC"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -87,6 +91,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="historyTableView" destination="MC6-tI-7Xk" id="SDU-1z-lrX"/>
                         <outlet property="mapView" destination="3Fa-Te-9cZ" id="atm-nr-UY7"/>
                     </connections>
                 </viewController>
