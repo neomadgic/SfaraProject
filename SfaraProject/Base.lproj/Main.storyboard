@@ -25,7 +25,7 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="3Fa-Te-9cZ" customClass="CurrentMapView" customModule="SfaraProject" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="334"/>
                             </mapView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="77" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MC6-tI-7Xk">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="77" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MC6-tI-7Xk">
                                 <rect key="frame" x="0.0" y="334" width="375" height="333"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -33,7 +33,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="61"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="n2a-c4-C8R" id="9EJ-F3-8Ya">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="61"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="25d-pl-EfB">
@@ -44,23 +44,33 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="March 22nd, 12:15PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="EDF-i2-iIN">
-                                                    <rect key="frame" x="74" y="5" width="293" height="21"/>
+                                                    <rect key="frame" x="74" y="6" width="293" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="76, Austin, TX" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="mvV-2Z-Eeg">
-                                                    <rect key="frame" x="74" y="36.5" width="293" height="17"/>
+                                                    <rect key="frame" x="74" y="36" width="293" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aOk-G5-iAF">
+                                                    <rect key="frame" x="0.0" y="60" width="375" height="1"/>
+                                                    <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="1" id="1zJ-Fy-2MT"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="25d-pl-EfB" firstAttribute="leading" secondItem="9EJ-F3-8Ya" secondAttribute="leading" constant="12" id="5Cn-zD-Ztf"/>
                                                 <constraint firstAttribute="trailing" secondItem="EDF-i2-iIN" secondAttribute="trailing" constant="8" id="8Ho-r1-e1H"/>
+                                                <constraint firstItem="aOk-G5-iAF" firstAttribute="leading" secondItem="9EJ-F3-8Ya" secondAttribute="leading" id="AXV-lf-KJO"/>
+                                                <constraint firstAttribute="trailing" secondItem="aOk-G5-iAF" secondAttribute="trailing" id="HfB-7K-pXF"/>
                                                 <constraint firstItem="mvV-2Z-Eeg" firstAttribute="centerY" secondItem="9EJ-F3-8Ya" secondAttribute="centerY" constant="14" id="JvL-Av-Zz4"/>
                                                 <constraint firstItem="mvV-2Z-Eeg" firstAttribute="leading" secondItem="25d-pl-EfB" secondAttribute="trailing" constant="12" id="Wy9-tW-Lb2"/>
+                                                <constraint firstAttribute="bottom" secondItem="aOk-G5-iAF" secondAttribute="bottom" id="cDb-P1-teI"/>
                                                 <constraint firstItem="EDF-i2-iIN" firstAttribute="leading" secondItem="25d-pl-EfB" secondAttribute="trailing" constant="12" id="eHE-mf-rZs"/>
                                                 <constraint firstAttribute="trailing" secondItem="mvV-2Z-Eeg" secondAttribute="trailing" constant="8" id="lPm-gm-yui"/>
                                                 <constraint firstItem="EDF-i2-iIN" firstAttribute="centerY" secondItem="9EJ-F3-8Ya" secondAttribute="centerY" constant="-14" id="tdc-2y-DzC"/>
