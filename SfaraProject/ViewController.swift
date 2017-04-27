@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class ViewController: UIViewController, MKMapViewDelegate {
+class ViewController: UIViewController, MKMapViewDelegate, UITableViewDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var historyTableView: UITableView!
@@ -41,4 +41,25 @@ extension ViewController: CLLocationManagerDelegate {
     }
 }
 
-// MARK: - Table View Methods
+// MARK: - UITableViewDataSource
+
+extension ViewController: UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryCell") as? HistoryCell {
+            cell.configureCell(with: Place(location: "Austin, TX", temperature: 76, forecast: "sunny", time: "10:00AM", date: "March 22nd"))
+            return cell
+        } else {
+            return HistoryCell()
+        }
+    }
+}
