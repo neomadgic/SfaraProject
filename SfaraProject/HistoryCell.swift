@@ -25,7 +25,9 @@ class HistoryCell: UITableViewCell {
         temperatureCityLabel.text = with.displayTemperatureAndLocation()
         
         // Set the Image
-        weatherImage.image = UIImage(named: "\(with.forecast)")
+        if with.forecast != nil {
+            weatherImage.image = UIImage(named: "\(with.forecast!)")
+        }
     }
 
 }

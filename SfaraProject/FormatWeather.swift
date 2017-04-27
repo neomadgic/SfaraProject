@@ -12,9 +12,11 @@ class FormatPlaceHelper {
     
     static func temperatureToString(from: Double) -> String {
         
+        //Round the temperature
         var roundedTemperature = from
         roundedTemperature.round()
         
+        // get temperature with no decimal
         return "\(Int(roundedTemperature))˚"
     }
     

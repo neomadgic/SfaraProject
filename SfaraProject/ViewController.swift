@@ -15,11 +15,17 @@ class ViewController: UIViewController, MKMapViewDelegate, UITableViewDelegate {
     @IBOutlet weak var historyTableView: UITableView!
     
     let locationManager = CLLocationManager()
+    var currentPlace = Place(zipCode: "78653")
+    var placeArray = [Place]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self
-        WeatherRequest(zipCode: "78653").downloadCurrentWeather()
+        currentPlace.downloadCurrentPlace { 
+            () -> () in
+            self.placeArray.append(self.currentPlace)
+            self.historyTableView.reloadData()
+        }
     }
     
 }
@@ -51,13 +57,13 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return placeArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryCell") as? HistoryCell {
-            cell.configureCell(with: Place(location: "Austin, TX", temperature: "76", forecast: "sunny", dateAndTime: "Mar 13, 2016 10:30PM"))
+            cell.configureCell(with: placeArray[indexPath.row])
             return cell
         } else {
             return HistoryCell()
