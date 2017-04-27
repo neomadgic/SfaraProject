@@ -8,8 +8,15 @@
 
 import Foundation
 
+/**
+ *  This class helps format the data retrieved from the Weather API
+ */
+
 class FormatPlaceHelper {
     
+    /**
+     *  Converts the temperature from Double to String and adds degree sign
+     */
     static func temperatureToString(from: Double) -> String {
         
         //Round the temperature
@@ -20,6 +27,9 @@ class FormatPlaceHelper {
         return "\(Int(roundedTemperature))˚"
     }
     
+    /**
+     *  Retreives the current date and time
+     */
     static func currentDateAndTimeAsString() -> String {
         
         // get the current date and time
@@ -34,11 +44,14 @@ class FormatPlaceHelper {
         return formatter.string(from: currentDateTime)
     }
     
+    /**
+     *  This function switches the forecast String to match up with an image name
+     */
     static func modifyForecast(from: String) -> String {
         switch from {
         case "Mostly Sunny", "Partly Sunny", "Intermittent Clouds", "Clear", "Mostly Clear":
             return "Sunny"
-        case "Mostly Cloudy":
+        case "Mostly Cloudy", "Overcast", "Partly Cloudy":
             return "Cloudy"
         case "Showers", "Mostly Cloudy w/ Showers", "Partly Sunny w/ Showers":
             return "Rain"

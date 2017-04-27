@@ -15,7 +15,7 @@ class ViewController: UIViewController, MKMapViewDelegate, UITableViewDelegate {
     @IBOutlet weak var historyTableView: UITableView!
     
     let locationManager = CLLocationManager()
-    var currentPlace = Place(zipCode: "78653")
+    var currentPlace = Place(zipCode: "41731")
     var placeArray = [Place]()
     
     override func viewDidLoad() {
