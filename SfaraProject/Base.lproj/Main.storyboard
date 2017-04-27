@@ -37,30 +37,32 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="25d-pl-EfB">
-                                                    <rect key="frame" x="8" y="5" width="50" height="50"/>
+                                                    <rect key="frame" x="12" y="5" width="50" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="50" id="5xz-VR-MsC"/>
                                                         <constraint firstAttribute="height" constant="50" id="YGX-f0-cHa"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="March 22nd, 12:15PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="EDF-i2-iIN">
-                                                    <rect key="frame" x="66" y="5" width="173" height="21"/>
+                                                    <rect key="frame" x="74" y="5" width="293" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="76, Austin, TX" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="mvV-2Z-Eeg">
-                                                    <rect key="frame" x="66" y="37" width="301" height="18"/>
+                                                    <rect key="frame" x="74" y="36" width="293" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="25d-pl-EfB" firstAttribute="leading" secondItem="9EJ-F3-8Ya" secondAttribute="leading" constant="8" id="5Cn-zD-Ztf"/>
+                                                <constraint firstItem="25d-pl-EfB" firstAttribute="leading" secondItem="9EJ-F3-8Ya" secondAttribute="leading" constant="12" id="5Cn-zD-Ztf"/>
+                                                <constraint firstAttribute="trailing" secondItem="EDF-i2-iIN" secondAttribute="trailing" constant="8" id="8Ho-r1-e1H"/>
                                                 <constraint firstItem="mvV-2Z-Eeg" firstAttribute="centerY" secondItem="9EJ-F3-8Ya" secondAttribute="centerY" constant="14" id="JvL-Av-Zz4"/>
-                                                <constraint firstItem="mvV-2Z-Eeg" firstAttribute="leading" secondItem="25d-pl-EfB" secondAttribute="trailing" constant="8" id="Wy9-tW-Lb2"/>
-                                                <constraint firstItem="EDF-i2-iIN" firstAttribute="leading" secondItem="25d-pl-EfB" secondAttribute="trailing" constant="8" id="eHE-mf-rZs"/>
+                                                <constraint firstItem="mvV-2Z-Eeg" firstAttribute="leading" secondItem="25d-pl-EfB" secondAttribute="trailing" constant="12" id="Wy9-tW-Lb2"/>
+                                                <constraint firstItem="EDF-i2-iIN" firstAttribute="leading" secondItem="25d-pl-EfB" secondAttribute="trailing" constant="12" id="eHE-mf-rZs"/>
+                                                <constraint firstAttribute="trailing" secondItem="mvV-2Z-Eeg" secondAttribute="trailing" constant="8" id="lPm-gm-yui"/>
                                                 <constraint firstItem="EDF-i2-iIN" firstAttribute="centerY" secondItem="9EJ-F3-8Ya" secondAttribute="centerY" constant="-14" id="tdc-2y-DzC"/>
                                                 <constraint firstItem="25d-pl-EfB" firstAttribute="centerY" secondItem="9EJ-F3-8Ya" secondAttribute="centerY" id="yXP-RN-nqg"/>
                                             </constraints>
