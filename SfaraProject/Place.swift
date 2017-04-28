@@ -18,7 +18,7 @@ class Place {
         self.zipCode = zipCode
     }
     
-    func updateObservation(completed: @escaping () -> ()) {
+    func updatePlace(completed: @escaping () -> ()) {
         
         let requestWeather = WeatherRequest(zipCode: zipCode!)
         requestWeather.getObservation { (observationJSON) -> (Void) in

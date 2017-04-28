@@ -26,7 +26,7 @@ class ViewController: UIViewController, MKMapViewDelegate, UITableViewDelegate {
 //            self.placeArray.append(self.currentPlace)
 //            self.historyTableView.reloadData()
 //        }
-        currentPlace.updateObservation { 
+        currentPlace.updatePlace {
             self.placeArray.append(self.currentPlace)
             self.historyTableView.reloadData()
         }
