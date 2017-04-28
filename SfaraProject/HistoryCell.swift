@@ -20,6 +20,7 @@ class HistoryCell: UITableViewCell {
     
     func configureCell(with: Place) {
         
+        // Ensure that the Place has values
         guard let location = with.observation?.location, let temperature = with.observation?.temperature, let forecast = with.observation?.forecast else {
             print("Error with location or temperature")
             return
@@ -28,12 +29,6 @@ class HistoryCell: UITableViewCell {
         // Set the Labels
         dateLabel.text = with.dateAndTime
         temperatureCityLabel.text = "\(temperature), \(location)"
-        
-//        // Set the Image
-//        if with.forecast != nil {
-//            weatherImage.image = UIImage(named: "\(FormatPlaceHelper.modifyForecast(from: with.forecast!))")
-//        }
-        
         weatherImage.image = UIImage(named: "\(FormatPlaceHelper.modifyForecast(from: forecast))")
     }
 }

@@ -14,10 +14,8 @@ class Observation {
     private(set) var location: String?
     private(set) var temperature: String?
     private(set) var forecast: String?
-    //private(set) var observationJSON: [String:Any]
     
     required init?(using: [String:Any]) {
-//        self.observationJSON = observationJSON
         getObservation(with: using)
     }
     
