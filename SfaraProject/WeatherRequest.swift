@@ -9,7 +9,7 @@
 import Foundation
 
 /**
- *  Struct that builds the URL to send to the server for parsing. Call the getter to URL for the fully qualified URL
+ *  Struct that builds the URL to send to the server for parsing. Call the getter to URL for the fully qualified URL. Also allows us to make weather request call to the weather API
  */
 
 class WeatherRequest {
@@ -55,49 +55,10 @@ class WeatherRequest {
             let json = try! JSONSerialization.jsonObject(with: data, options: []) as! [String:Any]
 
             let observation = json
-//            print(observation)
-//            print("we made it here at least")
             DispatchQueue.main.async {
                 completionHandler(observation)
             }
         }
         task.resume()
     }
-    
-//    /**
-//     *  Downloads the current temperature and saves the data
-//     */
-//    func downloadCurrentPlace(completed: @escaping () {
-//        
-//        let task = URLSession.shared.dataTask(with: URL!) { data, response, error in
-//            
-//            // exit function if error
-//            guard error == nil else {
-//                print(error!)
-//                return
-//            }
-//            guard let data = data else {
-//                print("Data is empty")
-//                return
-//            }
-//
-//            let json = try! JSONSerialization.jsonObject(with: data, options: []) as! [String:Any]
-//            
-//            //Guard statements to ensure that there is value in the JSON data
-//            guard let currentObservations = json["current_observation"] as? [String:Any] else { return }
-//            guard let displayLocation = currentObservations["display_location"] as? [String:Any] else { return }
-//            guard let location = displayLocation["full"] as! String? else { return }
-//            guard let temperature = currentObservations["temp_f"] as? Double else { return }
-//            guard let forecast = currentObservations["weather"] as? String else { return }
-//            
-//            //Convert format to String
-//            let dateAndTime = FormatPlaceHelper.currentDateAndTimeAsString()
-//            let temperatureAsString = FormatPlaceHelper.temperatureToString(from: temperature)
-//            
-//            DispatchQueue.main.async {
-//                completed()
-//            }
-//        }
-//        task.resume()
-//    }
 }

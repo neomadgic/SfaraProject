@@ -93,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				76446BA91EB01CB000FF3711 /* Essentials */,
+				76DB9AA41EB3F2EC0020C666 /* Utility */,
 				76446BA61EB01CA100FF3711 /* Model */,
 				76446BA71EB01CA700FF3711 /* View */,
 				76446BA81EB01CAB00FF3711 /* Controller */,
@@ -116,7 +117,6 @@
 			children = (
 				7688DC3B1EB1510B005318F8 /* Place.swift */,
 				768E950E1EB271510012F1C1 /* WeatherRequest.swift */,
-				768E951A1EB2AE070012F1C1 /* FormatPlaceHelper.swift */,
 				76DB9AA21EB3E01D0020C666 /* Observation.swift */,
 			);
 			name = Model;
@@ -147,6 +147,14 @@
 				76446B8A1EB01C3200FF3711 /* SfaraProject.xcdatamodeld */,
 			);
 			name = Essentials;
+			sourceTree = "<group>";
+		};
+		76DB9AA41EB3F2EC0020C666 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				768E951A1EB2AE070012F1C1 /* FormatPlaceHelper.swift */,
+			);
+			name = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
