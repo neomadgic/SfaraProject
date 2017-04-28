@@ -7,7 +7,11 @@
 //
 
 import Foundation
-import UIKit
+
+    /**
+    *  Observation class has the location, temperature, and forecast.
+    *  in tandem with the observationRequest class, it downloads the location, temperature, and forecast
+    */
 
 class Observation {
     

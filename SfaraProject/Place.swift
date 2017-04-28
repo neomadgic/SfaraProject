@@ -8,6 +8,11 @@
 
 import Foundation
 
+    /**
+    * A Place class has a date and time, observation, and zipcode.
+    * Observation class contains location, forecast, and temperature of the place
+    */
+
 class Place {
     
     private(set) var dateAndTime: String?
@@ -20,8 +25,8 @@ class Place {
     
     func updatePlace(completed: @escaping () -> ()) {
         
-        let requestWeather = WeatherRequest(zipCode: zipCode!)
-        requestWeather.getObservation { (observationJSON) -> (Void) in
+        let requestObservation = ObservationRequest(zipCode: zipCode!)
+        requestObservation.getObservation { (observationJSON) -> (Void) in
             let observation = Observation(using: observationJSON)
             self.observation = observation
             self.updateDateAndTime()

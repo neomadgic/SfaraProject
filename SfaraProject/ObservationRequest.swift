@@ -1,5 +1,5 @@
 //
-//  WeatherRequest.swift
+//  ObservationRequest.swift
 //  SfaraProject
 //
 //  Created by Vu Dang on 4/27/17.
@@ -12,7 +12,7 @@ import Foundation
  *  Struct that builds the URL to send to the server for parsing. Call the getter to URL for the fully qualified URL. Also allows us to make weather request call to the weather API
  */
 
-class WeatherRequest {
+class ObservationRequest {
     
     typealias ObservationCompletionHandlerType = ([String:Any])->(Void)
     
