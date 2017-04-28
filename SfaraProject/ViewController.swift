@@ -15,17 +15,22 @@ class ViewController: UIViewController, MKMapViewDelegate, UITableViewDelegate {
     @IBOutlet weak var historyTableView: UITableView!
     
     let locationManager = CLLocationManager()
-    var currentPlace = Place(zipCode: "41731")
+    var currentPlace = Place(zipCode: "55379")
     var placeArray = [Place]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self
-        currentPlace.downloadCurrentPlace { 
-            () -> () in
+//        currentPlace.downloadCurrentPlace { 
+//            () -> () in
+//            self.placeArray.append(self.currentPlace)
+//            self.historyTableView.reloadData()
+//        }
+        currentPlace.updateObservation { 
             self.placeArray.append(self.currentPlace)
             self.historyTableView.reloadData()
         }
+        
     }
     
 }
@@ -57,7 +62,11 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return placeArray.count
+        if placeArray.count > 0 {
+            return placeArray.count
+        } else {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

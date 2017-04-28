@@ -21,6 +21,7 @@
 		768E950F1EB271510012F1C1 /* WeatherRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768E950E1EB271510012F1C1 /* WeatherRequest.swift */; };
 		768E951B1EB2AE070012F1C1 /* FormatPlaceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768E951A1EB2AE070012F1C1 /* FormatPlaceHelper.swift */; };
 		768E951C1EB2AE070012F1C1 /* FormatPlaceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768E951A1EB2AE070012F1C1 /* FormatPlaceHelper.swift */; };
+		76DB9AA31EB3E01D0020C666 /* Observation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DB9AA21EB3E01D0020C666 /* Observation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		7688DC3B1EB1510B005318F8 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		768E950E1EB271510012F1C1 /* WeatherRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherRequest.swift; sourceTree = "<group>"; };
 		768E951A1EB2AE070012F1C1 /* FormatPlaceHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormatPlaceHelper.swift; sourceTree = "<group>"; };
+		76DB9AA21EB3E01D0020C666 /* Observation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				7688DC3B1EB1510B005318F8 /* Place.swift */,
 				768E950E1EB271510012F1C1 /* WeatherRequest.swift */,
 				768E951A1EB2AE070012F1C1 /* FormatPlaceHelper.swift */,
+				76DB9AA21EB3E01D0020C666 /* Observation.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -251,6 +254,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76DB9AA31EB3E01D0020C666 /* Observation.swift in Sources */,
 				768E950F1EB271510012F1C1 /* WeatherRequest.swift in Sources */,
 				76446B861EB01C3200FF3711 /* ViewController.swift in Sources */,
 				76446B8C1EB01C3200FF3711 /* SfaraProject.xcdatamodeld in Sources */,
