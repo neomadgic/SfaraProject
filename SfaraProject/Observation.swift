@@ -20,7 +20,6 @@ class Observation {
     }
     
     func getObservation(with: [String:Any]) {
-        print("Did we make it here?")
         
         //Guard to make sure we get data is found within the json
         guard let currentObservations = with["current_observation"] as? [String:Any], let displayLocation = currentObservations["display_location"] as? [String:Any], let location = displayLocation["full"] as! String?, let temperature = currentObservations["temp_f"] as? Double, let forecast = currentObservations["weather"] as? String else {

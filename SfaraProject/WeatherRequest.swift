@@ -53,10 +53,8 @@ class WeatherRequest {
             }
             
             let json = try! JSONSerialization.jsonObject(with: data, options: []) as! [String:Any]
-
-            let observation = json
             DispatchQueue.main.async {
-                completionHandler(observation)
+                completionHandler(json)
             }
         }
         task.resume()

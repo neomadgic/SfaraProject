@@ -21,11 +21,6 @@ class ViewController: UIViewController, MKMapViewDelegate, UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self
-//        currentPlace.downloadCurrentPlace { 
-//            () -> () in
-//            self.placeArray.append(self.currentPlace)
-//            self.historyTableView.reloadData()
-//        }
         currentPlace.updatePlace {
             self.placeArray.append(self.currentPlace)
             self.historyTableView.reloadData()
