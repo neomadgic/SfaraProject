@@ -26,7 +26,7 @@ class Place {
     func updatePlace(completed: @escaping () -> ()) {
         
         let requestObservation = ObservationRequest(zipCode: zipCode!)
-        requestObservation.getObservation { (observationJSON) -> (Void) in
+        requestObservation.requestObservation { (observationJSON) -> (Void) in
             let observation = Observation(using: observationJSON)
             self.observation = observation
             self.updateDateAndTime()

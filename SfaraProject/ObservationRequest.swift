@@ -38,7 +38,7 @@ class ObservationRequest {
         self.zipCode = zipCode
     }
     
-    func getObservation(with completionHandler: @escaping ObservationCompletionHandlerType) {
+    func requestObservation(with completionHandler: @escaping ObservationCompletionHandlerType) {
         
         let task = URLSession.shared.dataTask(with: URL!) { data, response, error in
             
@@ -58,5 +58,23 @@ class ObservationRequest {
             }
         }
         task.resume()
+    }
+    
+    func parseObservation(using: [String:Any]) -> [String:String]? {
+        
+        //Guard to make sure we get data is found within the json
+        guard let currentObservations = using["current_observation"] as? [String:Any], let displayLocation = currentObservations["display_location"] as? [String:Any], let location = displayLocation["full"] as! String?, let temperature = currentObservations["temp_f"] as? Double, let forecast = currentObservations["weather"] as? String else {
+            print("Unabled to retrieve observations")
+            return nil
+        }
+        
+        let observations: [String:String] = [
+            "location": "\(location)",
+            "temperature": "\(FormatPlaceHelper.temperatureToString(from: temperature))",
+            "forecast": "\(forecast)",
+            "timeAndDate": "\(FormatPlaceHelper.currentDateAndTimeAsString())"
+        ]
+        
+        return observations
     }
 }

@@ -18,18 +18,10 @@ class ViewController: UIViewController, MKMapViewDelegate, UITableViewDelegate {
     var currentPlace1 = Place(zipCode: "55379")
     var placeArray = [Place]()
     
-    //var zipcode: String?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         DataService.instance.loadSettings()
-        print(DataService.instance.loadedSettings.startingLocation)
-        print(DataService.instance.loadedSettings.placeArray.count)
         locationManager.delegate = self
-//        currentPlace1.updatePlace {
-//            self.placeArray.append(self.currentPlace1)
-//            self.historyTableView.reloadData()
-//        }
     }
     
 }
@@ -67,7 +59,6 @@ extension ViewController: CLLocationManagerDelegate {
             print(zipcode)
             let newPlace = Place(zipCode: zipcode)
             newPlace.updatePlace {
-                DataService.instance.loadedSettings.placeArray.append(newPlace)
                 self.historyTableView.reloadData()
             }
         }
@@ -90,17 +81,13 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if DataService.instance.loadedSettings.placeArray.count > 0 {
-            return placeArray.count
-        } else {
-            return 0
-        }
+        return placeArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryCell") as? HistoryCell {
-            cell.configureCell(with: DataService.instance.loadedSettings.placeArray[indexPath.row]!)
+            cell.configureCell(with: placeArray[indexPath.row])
             return cell
         } else {
             return HistoryCell()
