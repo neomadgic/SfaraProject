@@ -15,17 +15,21 @@ class ViewController: UIViewController, MKMapViewDelegate, UITableViewDelegate {
     @IBOutlet weak var historyTableView: UITableView!
     
     let locationManager = CLLocationManager()
-    var currentPlace = Place(zipCode: "55379")
+    var currentPlace1 = Place(zipCode: "55379")
     var placeArray = [Place]()
+    
+    //var zipcode: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        DataService.instance.loadSettings()
+        print(DataService.instance.loadedSettings.startingLocation)
+        print(DataService.instance.loadedSettings.placeArray.count)
         locationManager.delegate = self
-        currentPlace.updatePlace {
-            self.placeArray.append(self.currentPlace)
-            self.historyTableView.reloadData()
-        }
-        
+//        currentPlace1.updatePlace {
+//            self.placeArray.append(self.currentPlace1)
+//            self.historyTableView.reloadData()
+//        }
     }
     
 }
@@ -38,6 +42,35 @@ extension ViewController: CLLocationManagerDelegate {
         locationManager.requestAlwaysAuthorization()
         mapView.showsUserLocation = (status == .authorizedAlways)
         centerMapView()
+        //addPlaceArray()
+    }
+    
+    func getZipcode(completedWith: @escaping (String) -> (Void)) {
+        guard let location = locationManager.location else { return }
+        print(location)
+        CLGeocoder().reverseGeocodeLocation(location) { (placemark, error) in
+            
+            guard let place = placemark else {
+                print(error!.localizedDescription)
+                return
+            }
+            guard let zipcode = place[0].postalCode else {
+                print("no zip code was found")
+                return
+            }
+            completedWith(zipcode)
+        }
+    }
+    
+    func addPlaceArray() {
+        getZipcode { (zipcode) -> (Void) in
+            print(zipcode)
+            let newPlace = Place(zipCode: zipcode)
+            newPlace.updatePlace {
+                DataService.instance.loadedSettings.placeArray.append(newPlace)
+                self.historyTableView.reloadData()
+            }
+        }
     }
     
     //Center the MapView
@@ -57,7 +90,7 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if placeArray.count > 0 {
+        if DataService.instance.loadedSettings.placeArray.count > 0 {
             return placeArray.count
         } else {
             return 0
@@ -67,7 +100,7 @@ extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryCell") as? HistoryCell {
-            cell.configureCell(with: placeArray[indexPath.row])
+            cell.configureCell(with: DataService.instance.loadedSettings.placeArray[indexPath.row]!)
             return cell
         } else {
             return HistoryCell()
