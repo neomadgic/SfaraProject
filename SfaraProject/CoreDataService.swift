@@ -19,7 +19,7 @@ class CoreDataService {
         return appDelegate.persistentContainer.viewContext
     }
     
-    func getObservationArray() -> [NSManagedObject] {
+    func getArray() -> [NSManagedObject] {
         
         var observationArray = [NSManagedObject]()
         let moc = getContext()
@@ -33,6 +33,19 @@ class CoreDataService {
         }
         
         return observationArray
+    }
+    
+    func getObservation(at: Int) -> NSManagedObject? {
+        let moc = getContext()
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Observation")
+        let result = try? moc.fetch(fetchRequest)
+        
+        guard result?[at] != nil else {
+            print("Failed to fetch Observation")
+            return nil
+        }
+        
+        return result![at]
     }
     
     func addObservation(with: [String:String]) {
@@ -58,7 +71,7 @@ class CoreDataService {
         let result = try? moc.fetch(fetchRequest)
         
         guard result?[at] != nil else {
-            print("Got an error here")
+            print("Failed to fetch Observation")
             return
         }
         
@@ -81,5 +94,4 @@ class CoreDataService {
             print("Could not save. \(error), \(error.userInfo)")
         }
     }
-    
 }

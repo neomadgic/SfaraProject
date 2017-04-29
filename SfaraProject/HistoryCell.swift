@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class HistoryCell: UITableViewCell {
 
@@ -18,17 +19,17 @@ class HistoryCell: UITableViewCell {
         super.awakeFromNib()
     }
     
-    func configureCell(with: Place) {
+    func configureCell(with: NSManagedObject) {
         
         // Ensure that the Place has values
-//        guard let location = with.observation?.location, let temperature = with.observation?.temperature, let forecast = with.observation?.forecast else {
-//            print("Error with location or temperature")
-//            return
-//        }
+        guard let location = with.value(forKey: "location") as? String, let temperature = with.value(forKey: "temperature") as? String, let forecast = with.value(forKey: "forecast") as? String, let dateAndTime = with.value(forKey: "dateAndTime") as? String else {
+            print("Error with location or temperature")
+            return
+        }
         
-        // Set the Labels
-//        dateLabel.text = with.dateAndTime
-//        temperatureCityLabel.text = "\(temperature), \(location)"
-//        weatherImage.image = UIImage(named: "\(FormatPlaceHelper.modifyForecast(from: forecast))")
+        //Set the Labels
+        dateLabel.text = dateAndTime
+        temperatureCityLabel.text = "\(temperature), \(location)"
+        weatherImage.image = UIImage(named: "\(FormatPlaceHelper.modifyForecast(from: forecast))")
     }
 }

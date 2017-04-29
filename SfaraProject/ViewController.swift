@@ -58,8 +58,13 @@ extension ViewController: CLLocationManagerDelegate {
         getZipcode { (zipcode) -> (Void) in
             let request = ObservationRequest(zipCode: zipcode)
             request.requestObservation(with: { (json) -> (Void) in
-                let fakeDictionary = request.parseObservation(using: json)
-                print(fakeDictionary!)
+                
+                guard let observationDictionary = request.parseObservation(using: json) else {
+                    print("Error retrieving parsed JSON data")
+                    return
+                }
+                CoreDataService.observationArray.addObservation(with: observationDictionary)
+                self.historyTableView.reloadData()
             })
         }
     }
@@ -81,13 +86,13 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return CoreDataService.observationArray.getObservationArray().count
+        return CoreDataService.observationArray.getArray().count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryCell") as? HistoryCell {
-            cell.configureCell(with: placeArray[indexPath.row])
+            cell.configureCell(with: CoreDataService.observationArray.getArray()[indexPath.row])
             return cell
         } else {
             return HistoryCell()
