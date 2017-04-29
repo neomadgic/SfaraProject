@@ -4,7 +4,7 @@
 //
 //  Created by Vu Dang on 4/26/17.
 //  Copyright © 2017 Vu Dang. All rights reserved.
-//
+
 
 import Foundation
 
@@ -16,7 +16,7 @@ import Foundation
 class Place {
     
     private(set) var dateAndTime: String?
-    private(set) var observation: Observation?
+    //private(set) var observation: Observation?
     private(set) var zipCode: String?
     
     init(zipCode: String) {
@@ -27,8 +27,8 @@ class Place {
         
         let requestObservation = ObservationRequest(zipCode: zipCode!)
         requestObservation.requestObservation { (observationJSON) -> (Void) in
-            let observation = Observation(using: observationJSON)
-            self.observation = observation
+            //let observation = Observation(using: observationJSON)
+            //self.observation = observation
             self.updateDateAndTime()
             completed()
         }

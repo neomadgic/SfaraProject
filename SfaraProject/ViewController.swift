@@ -34,7 +34,7 @@ extension ViewController: CLLocationManagerDelegate {
         locationManager.requestAlwaysAuthorization()
         mapView.showsUserLocation = (status == .authorizedAlways)
         centerMapView()
-        //addPlaceArray()
+        addPlaceArray()
     }
     
     func getZipcode(completedWith: @escaping (String) -> (Void)) {
@@ -56,11 +56,11 @@ extension ViewController: CLLocationManagerDelegate {
     
     func addPlaceArray() {
         getZipcode { (zipcode) -> (Void) in
-            print(zipcode)
-            let newPlace = Place(zipCode: zipcode)
-            newPlace.updatePlace {
-                self.historyTableView.reloadData()
-            }
+            let request = ObservationRequest(zipCode: zipcode)
+            request.requestObservation(with: { (json) -> (Void) in
+                let fakeDictionary = request.parseObservation(using: json)
+                print(fakeDictionary!)
+            })
         }
     }
     
@@ -81,7 +81,7 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return placeArray.count
+        return CoreDataService.observationArray.getObservationArray().count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

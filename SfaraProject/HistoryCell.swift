@@ -21,14 +21,14 @@ class HistoryCell: UITableViewCell {
     func configureCell(with: Place) {
         
         // Ensure that the Place has values
-        guard let location = with.observation?.location, let temperature = with.observation?.temperature, let forecast = with.observation?.forecast else {
-            print("Error with location or temperature")
-            return
-        }
+//        guard let location = with.observation?.location, let temperature = with.observation?.temperature, let forecast = with.observation?.forecast else {
+//            print("Error with location or temperature")
+//            return
+//        }
         
         // Set the Labels
-        dateLabel.text = with.dateAndTime
-        temperatureCityLabel.text = "\(temperature), \(location)"
-        weatherImage.image = UIImage(named: "\(FormatPlaceHelper.modifyForecast(from: forecast))")
+//        dateLabel.text = with.dateAndTime
+//        temperatureCityLabel.text = "\(temperature), \(location)"
+//        weatherImage.image = UIImage(named: "\(FormatPlaceHelper.modifyForecast(from: forecast))")
     }
 }

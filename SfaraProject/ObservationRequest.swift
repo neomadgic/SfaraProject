@@ -72,7 +72,7 @@ class ObservationRequest {
             "location": "\(location)",
             "temperature": "\(FormatPlaceHelper.temperatureToString(from: temperature))",
             "forecast": "\(forecast)",
-            "timeAndDate": "\(FormatPlaceHelper.currentDateAndTimeAsString())"
+            "dateAndTime": "\(FormatPlaceHelper.currentDateAndTimeAsString())"
         ]
         
         return observations
