@@ -14,6 +14,8 @@
 		762B6A0E1EB448560032F054 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762B6A0C1EB448560032F054 /* Constants.swift */; };
 		762B6A101EB44B2D0032F054 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762B6A0F1EB44B2D0032F054 /* DataService.swift */; };
 		762B6A111EB44B2D0032F054 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762B6A0F1EB44B2D0032F054 /* DataService.swift */; };
+		762B94AA1EB549D400151752 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762B94A91EB549D400151752 /* CoreDataService.swift */; };
+		762B94AB1EB549D400151752 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762B94A91EB549D400151752 /* CoreDataService.swift */; };
 		76446B841EB01C3200FF3711 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76446B831EB01C3200FF3711 /* AppDelegate.swift */; };
 		76446B861EB01C3200FF3711 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76446B851EB01C3200FF3711 /* ViewController.swift */; };
 		76446B891EB01C3200FF3711 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76446B871EB01C3200FF3711 /* Main.storyboard */; };
@@ -46,6 +48,7 @@
 		762B6A071EB444750032F054 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		762B6A0C1EB448560032F054 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		762B6A0F1EB44B2D0032F054 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		762B94A91EB549D400151752 /* CoreDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		76446B801EB01C3200FF3711 /* SfaraProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SfaraProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76446B831EB01C3200FF3711 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76446B851EB01C3200FF3711 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -168,6 +171,7 @@
 				768E951A1EB2AE070012F1C1 /* FormatPlaceHelper.swift */,
 				762B6A0C1EB448560032F054 /* Constants.swift */,
 				762B6A0F1EB44B2D0032F054 /* DataService.swift */,
+				762B94A91EB549D400151752 /* CoreDataService.swift */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -278,6 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				76DB9AA31EB3E01D0020C666 /* Observation.swift in Sources */,
+				762B94AA1EB549D400151752 /* CoreDataService.swift in Sources */,
 				762B6A0D1EB448560032F054 /* Constants.swift in Sources */,
 				768E950F1EB271510012F1C1 /* ObservationRequest.swift in Sources */,
 				762B6A101EB44B2D0032F054 /* DataService.swift in Sources */,
@@ -300,6 +305,7 @@
 				762B6A111EB44B2D0032F054 /* DataService.swift in Sources */,
 				7688DC3D1EB1510B005318F8 /* Place.swift in Sources */,
 				76446BAD1EB01F5300FF3711 /* HistoryCell.swift in Sources */,
+				762B94AB1EB549D400151752 /* CoreDataService.swift in Sources */,
 				762B6A061EB42A5C0032F054 /* CurrentLocation.swift in Sources */,
 				76446B9C1EB01C3200FF3711 /* SfaraProjectTests.swift in Sources */,
 				762B6A0E1EB448560032F054 /* Constants.swift in Sources */,

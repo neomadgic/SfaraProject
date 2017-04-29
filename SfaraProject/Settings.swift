@@ -29,7 +29,19 @@ class Settings: NSObject, NSCoding {
         coder.encode(self.startingLocation, forKey: keyFor.STARTINGLOCATION)
     }
     
-    func add(Place: Place, at: Int) {
-        
+    func increaseCount() {
+        if self.count < 6 {
+            self.count = 5
+        } else {
+            self.count += 1
+        }
+    }
+    
+    func moveStartingLocation() {
+        if startingLocation < 5 {
+            self.startingLocation = 0
+        } else {
+            self.startingLocation += 1
+        }
     }
 }
