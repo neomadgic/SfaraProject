@@ -15,26 +15,25 @@ class ViewController: UIViewController, MKMapViewDelegate, UITableViewDelegate {
     @IBOutlet weak var historyTableView: UITableView!
     
     let locationManager = CLLocationManager()
-    var currentPlace1 = Place(zipCode: "55379")
-    var placeArray = [Place]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        DataService.instance.loadSettings()
+        NotificationCenter.default.addObserver(self,
+            selector: #selector(applicationDidBecomeActive(_:)),
+            name: NSNotification.Name.UIApplicationDidBecomeActive,
+            object: nil)
         locationManager.delegate = self
     }
     
-}
-
-// MARK: - CLLocationManager Extension to display current location of user on the map
-
-extension ViewController: CLLocationManagerDelegate {
-    
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        locationManager.requestAlwaysAuthorization()
-        mapView.showsUserLocation = (status == .authorizedAlways)
-        centerMapView()
-        addPlaceArray()
+    func updateTable() {
+        getZipcode { (zipcode) -> (Void) in
+            ObservationRequest(with: zipcode).requestObservation(with: { (observation) -> (Void) in
+                
+                print(observation)
+                self.addToObservationArray(the: observation)
+                self.historyTableView.reloadData()
+            })
+        }
     }
     
     func getZipcode(completedWith: @escaping (String) -> (Void)) {
@@ -54,13 +53,34 @@ extension ViewController: CLLocationManagerDelegate {
         }
     }
     
-    func addPlaceArray() {
-        getZipcode { (zipcode) -> (Void) in
-            ObservationRequest(with: zipcode).requestObservation(with: { (observation) -> (Void) in
-                CoreDataService.observationArray.addObservation(with: observation)
-                self.historyTableView.reloadData()
-            })
+    func addToObservationArray(the: [String:String]) {
+        if UserDefaultManager.count == 5 {
+            CoreDataService.observationArray.replaceObservation(with: the, at: UserDefaultManager.startingLocation)
+            UserDefaultManager.count += 1
+            UserDefaultManager.startingLocation += 1
+        } else {
+            CoreDataService.observationArray.addObservation(with: the)
+            UserDefaultManager.count += 1
+            UserDefaultManager.startingLocation += 1
         }
+    }
+    
+    func applicationDidBecomeActive(_ notification: NSNotification) {
+
+        updateTable()
+    }
+    
+}
+
+// MARK: - CLLocationManager Extension to display current location of user on the map
+
+extension ViewController: CLLocationManagerDelegate {
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        locationManager.requestAlwaysAuthorization()
+        mapView.showsUserLocation = (status == .authorizedAlways)
+        centerMapView()
+        updateTable()
     }
     
     //Center the MapView
@@ -85,8 +105,17 @@ extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        var position = 4
+        if UserDefaultManager.startingLocation > 0 {
+            position = (UserDefaultManager.startingLocation - 1)
+        }
         if let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryCell") as? HistoryCell {
-            cell.configureCell(with: CoreDataService.observationArray.getArray()[indexPath.row])
+            
+            if position >= indexPath.row {
+                cell.configureCell(with: CoreDataService.observationArray.getArray()[position - indexPath.row])
+            } else {
+                cell.configureCell(with: CoreDataService.observationArray.getArray()[position - indexPath.row + 5])
+            }
             return cell
         } else {
             return HistoryCell()

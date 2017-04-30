@@ -58,7 +58,7 @@ class FormatPlaceHelper {
         case "Flurries", "Mostly Cloudy w/ Flurries", "Partly Sunny w/ Flurries", "Mostly Cloudy w/ Snow", "Ice", "Sleet", "Freezing Rain", "Rain and Snow":
             return "Snow"
         case "Mostly Cloudy w/ T-Storms", "Partly Cloudy w/ T-Storms":
-            return "T-Storms"
+            return "Thunderstorm"
         default:
             return from
         }
