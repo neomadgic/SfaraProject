@@ -18,10 +18,10 @@ class UserDefaultManager {
             return UserDefaults.standard.integer(forKey: countKey)
         }
         set {
-            if newValue < 5 {
+            if newValue < numberOfCells {
                 UserDefaults.standard.set(newValue, forKey: countKey)
             } else {
-                UserDefaults.standard.set(5, forKey: countKey)
+                UserDefaults.standard.set(numberOfCells, forKey: countKey)
             }
             
         }
@@ -32,7 +32,7 @@ class UserDefaultManager {
             return UserDefaults.standard.integer(forKey: startingLocationKey)
         }
         set {
-            if newValue > 4 {
+            if newValue > (numberOfCells - 1) {
                 UserDefaults.standard.set(0, forKey: startingLocationKey)
             } else {
                 UserDefaults.standard.set(newValue, forKey: startingLocationKey)
