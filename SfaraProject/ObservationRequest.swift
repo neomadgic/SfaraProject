@@ -14,7 +14,7 @@ import Foundation
 
 class ObservationRequest {
     
-    typealias ObservationCompletionHandlerType = ([String:Any])->(Void)
+    typealias ObservationCompletionHandlerType = ([String:String])->(Void)
     
     /// API Key to be used in the application
     private let APIKey = "189b51bbd050fc21"
@@ -34,8 +34,8 @@ class ObservationRequest {
         }
     }
     
-    init(zipCode: String) {
-        self.zipCode = zipCode
+    init(with: String) {
+        self.zipCode = with
     }
     
     func requestObservation(with completionHandler: @escaping ObservationCompletionHandlerType) {
@@ -54,18 +54,23 @@ class ObservationRequest {
             
             let json = try! JSONSerialization.jsonObject(with: data, options: []) as! [String:Any]
             DispatchQueue.main.async {
-                completionHandler(json)
+                completionHandler(self.parseObservation(using: json))
             }
         }
         task.resume()
     }
     
-    func parseObservation(using: [String:Any]) -> [String:String]? {
+    func parseObservation(using: [String:Any]) -> [String:String] {
         
         //Guard to make sure we get data is found within the json
         guard let currentObservations = using["current_observation"] as? [String:Any], let displayLocation = currentObservations["display_location"] as? [String:Any], let location = displayLocation["full"] as! String?, let temperature = currentObservations["temp_f"] as? Double, let forecast = currentObservations["weather"] as? String else {
             print("Unabled to retrieve observations")
-            return nil
+            return [
+                "location": "",
+                "temperature": "",
+                "forecast": "",
+                "dateAndTime": ""
+            ]
         }
         
         let observations: [String:String] = [

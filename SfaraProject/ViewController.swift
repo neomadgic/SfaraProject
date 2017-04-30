@@ -56,14 +56,8 @@ extension ViewController: CLLocationManagerDelegate {
     
     func addPlaceArray() {
         getZipcode { (zipcode) -> (Void) in
-            let request = ObservationRequest(zipCode: zipcode)
-            request.requestObservation(with: { (json) -> (Void) in
-                
-                guard let observationDictionary = request.parseObservation(using: json) else {
-                    print("Error retrieving parsed JSON data")
-                    return
-                }
-                CoreDataService.observationArray.addObservation(with: observationDictionary)
+            ObservationRequest(with: zipcode).requestObservation(with: { (observation) -> (Void) in
+                CoreDataService.observationArray.addObservation(with: observation)
                 self.historyTableView.reloadData()
             })
         }
