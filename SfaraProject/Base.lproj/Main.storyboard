@@ -90,7 +90,7 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="hbD-N0-jbC"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Oo-Yp-uPH" customClass="WeatherDisplayView" customModule="SfaraProject" customModuleProvider="target">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Oo-Yp-uPH" customClass="WeatherDisplayView" customModule="SfaraProject" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="94l-W4-XPf">
@@ -105,11 +105,11 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="an7-PV-xcv"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Partly Cloudy" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="HJp-qk-c3A">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Partly Cloudy" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="HJp-qk-c3A">
                                         <rect key="frame" x="129" y="66" width="238" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -141,7 +141,6 @@
                                     <constraint firstItem="H2K-Ll-430" firstAttribute="leading" secondItem="94l-W4-XPf" secondAttribute="trailing" constant="8" id="esJ-GU-e43"/>
                                     <constraint firstItem="HJp-qk-c3A" firstAttribute="top" secondItem="H2K-Ll-430" secondAttribute="bottom" constant="15" id="i8T-gY-2lC"/>
                                     <constraint firstItem="94l-W4-XPf" firstAttribute="top" secondItem="7Oo-Yp-uPH" secondAttribute="top" constant="15" id="iMm-Wh-vio"/>
-                                    <constraint firstItem="HJp-qk-c3A" firstAttribute="leading" secondItem="pCv-uX-Vin" secondAttribute="trailing" constant="28" id="qss-zg-4dC"/>
                                     <constraint firstAttribute="bottom" secondItem="pCv-uX-Vin" secondAttribute="bottom" constant="8" id="tV0-QX-EIN"/>
                                     <constraint firstItem="94l-W4-XPf" firstAttribute="leading" secondItem="7Oo-Yp-uPH" secondAttribute="leading" constant="8" id="vqA-ib-XfI"/>
                                 </constraints>
@@ -163,8 +162,13 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="forecastLabel" destination="HJp-qk-c3A" id="IEl-nh-Meu"/>
                         <outlet property="historyTableView" destination="MC6-tI-7Xk" id="SDU-1z-lrX"/>
+                        <outlet property="locationLabel" destination="H2K-Ll-430" id="wt4-Nu-8iN"/>
                         <outlet property="mapView" destination="3Fa-Te-9cZ" id="atm-nr-UY7"/>
+                        <outlet property="temperatureLabel" destination="pCv-uX-Vin" id="Meo-9n-jlO"/>
+                        <outlet property="weatherDisplayView" destination="7Oo-Yp-uPH" id="PUr-Kb-fz2"/>
+                        <outlet property="weatherIconImage" destination="94l-W4-XPf" id="HOw-gd-SO4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

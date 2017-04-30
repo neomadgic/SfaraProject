@@ -11,7 +11,7 @@ import UIKit
 class WeatherDisplayView: UIView {
 
     override func awakeFromNib() {
-        backgroundColor = UIColor(white: 0.75, alpha: 0.6)
+        backgroundColor = UIColor(white: 0.9, alpha: 0.75)
     }
 
 }

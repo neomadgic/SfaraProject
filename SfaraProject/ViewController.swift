@@ -27,6 +27,12 @@ class ViewController: UIViewController, MKMapViewDelegate, UITableViewDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var historyTableView: UITableView!
+    @IBOutlet weak var weatherDisplayView: WeatherDisplayView!
+    @IBOutlet weak var weatherIconImage: UIImageView!
+    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var forecastLabel: UILabel!
+    @IBOutlet weak var temperatureLabel: UILabel!
+    
     
     let locationManager = CLLocationManager()
     
@@ -49,10 +55,25 @@ class ViewController: UIViewController, MKMapViewDelegate, UITableViewDelegate {
             ObservationRequest(with: zipcode).requestObservation(with: { (observation) -> (Void) in
                 
                 print(observation)
+                self.updateWeatherView(with: observation)
                 self.addToObservationArray(the: observation)
                 self.historyTableView.reloadData()
             })
         }
+    }
+    
+    func updateWeatherView(with: [String:String]) {
+        guard let forecast = with["forecast"], let temperature = with["temperature"], let location = with["location"] else {
+            print("unable to locate Observation Dictionary")
+            weatherDisplayView.isHidden = true
+            return
+        }
+        
+        weatherIconImage.image = UIImage(named: "\(FormatPlaceHelper.modifyForecast(from: forecast))")
+        temperatureLabel.text = temperature
+        locationLabel.text = "Currently in \(location)"
+        forecastLabel.text = forecast
+        weatherDisplayView.isHidden = false
     }
     
     /**
