@@ -54,7 +54,6 @@ class ViewController: UIViewController, MKMapViewDelegate, UITableViewDelegate {
         getZipcode { (zipcode) -> (Void) in
             ObservationRequest(with: zipcode).requestObservation(with: { (observation) -> (Void) in
                 
-                print(observation)
                 self.updateWeatherView(with: observation)
                 self.addToObservationArray(the: observation)
                 self.historyTableView.reloadData()

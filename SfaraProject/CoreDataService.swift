@@ -96,7 +96,7 @@ class CoreDataService {
     func save(context: NSManagedObjectContext) {
         do {
             try context.save()
-            print("save")
+            print("saved in Core Data")
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }

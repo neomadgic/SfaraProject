@@ -28,7 +28,6 @@ class UserDefaultManager {
             } else {
                 UserDefaults.standard.set(numberOfCells, forKey: countKey)
             }
-            
         }
     }
     
