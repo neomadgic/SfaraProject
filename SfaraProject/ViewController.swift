@@ -29,10 +29,10 @@ class ViewController: UIViewController, MKMapViewDelegate, UITableViewDelegate {
     
     func applicationDidBecomeActive(_ notification: NSNotification) {
         centerMapView()
-        updateTable()
+        updateViewController()
     }
     
-    func updateTable() {
+    func updateViewController() {
         getZipcode { (zipcode) -> (Void) in
             ObservationRequest(with: zipcode).requestObservation(with: { (observation) -> (Void) in
                 
@@ -43,16 +43,19 @@ class ViewController: UIViewController, MKMapViewDelegate, UITableViewDelegate {
         }
     }
     
+    /**
+    *   This function determines if there is room in the tableview for another observation
+    *   If not, it will replace the oldest observation with the new one
+    *   Lastly, it adds counts to the user defaults and saves it
+    */
     func addToObservationArray(the: [String:String]) {
         if UserDefaultManager.count >= numberOfCells {
             CoreDataService.observationArray.replaceObservation(with: the, at: UserDefaultManager.startingLocation)
-            UserDefaultManager.count += 1
-            UserDefaultManager.startingLocation += 1
         } else {
             CoreDataService.observationArray.addObservation(with: the)
-            UserDefaultManager.count += 1
-            UserDefaultManager.startingLocation += 1
         }
+        UserDefaultManager.count += 1
+        UserDefaultManager.startingLocation += 1
     }
 }
 
@@ -65,6 +68,7 @@ extension ViewController: CLLocationManagerDelegate {
         mapView.showsUserLocation = (status == .authorizedAlways)
     }
     
+    // Grab zipcode from the current location
     func getZipcode(completedWith: @escaping (String) -> (Void)) {
         guard let location = locationManager.location else { return }
         print(location)
@@ -104,16 +108,17 @@ extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        var position = (numberOfCells - 1)
+        // These are the logic in order to sort the Observation cells from newest to oldest
+        var indexOfRecentObservation = (numberOfCells - 1)
         if UserDefaultManager.startingLocation > 0 {
-            position = (UserDefaultManager.startingLocation - 1)
+            indexOfRecentObservation = (UserDefaultManager.startingLocation - 1)
         }
         if let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryCell") as? HistoryCell {
             
-            if position >= indexPath.row {
-                cell.configureCell(with: CoreDataService.observationArray.getArray()[position - indexPath.row])
+            if indexOfRecentObservation >= indexPath.row {
+                cell.configureCell(with: CoreDataService.observationArray.getArray()[indexOfRecentObservation - indexPath.row])
             } else {
-                cell.configureCell(with: CoreDataService.observationArray.getArray()[position - indexPath.row + numberOfCells])
+                cell.configureCell(with: CoreDataService.observationArray.getArray()[indexOfRecentObservation - indexPath.row + numberOfCells])
             }
             return cell
         } else {

@@ -21,7 +21,7 @@ class HistoryCell: UITableViewCell {
     
     func configureCell(with: NSManagedObject) {
         
-        // Ensure that the Place has values
+        // Ensure that the Observation has values
         guard let location = with.value(forKey: "location") as? String, let temperature = with.value(forKey: "temperature") as? String, let forecast = with.value(forKey: "forecast") as? String, let dateAndTime = with.value(forKey: "dateAndTime") as? String else {
             print("Error with location or temperature")
             return

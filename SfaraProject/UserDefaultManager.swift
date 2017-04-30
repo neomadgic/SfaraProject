@@ -8,6 +8,11 @@
 
 import Foundation
 
+/**
+ *  This class handles the UserDefault by storing data locally
+ *  Only stores count and startingLocation
+ */
+
 class UserDefaultManager {
     
     private static let countKey = "count"

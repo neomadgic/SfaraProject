@@ -9,7 +9,7 @@
 import Foundation
 
 /**
- *  Struct that builds the URL to send to the server for parsing. Call the getter to URL for the fully qualified URL. Also allows us to make weather request call to the weather API
+ *  This class handles all the web requesting and parsing the data into the right format
  */
 
 class ObservationRequest {
@@ -65,6 +65,7 @@ class ObservationRequest {
         //Guard to make sure we get data is found within the json
         guard let currentObservations = using["current_observation"] as? [String:Any], let displayLocation = currentObservations["display_location"] as? [String:Any], let location = displayLocation["full"] as! String?, let temperature = currentObservations["temp_f"] as? Double, let forecast = currentObservations["weather"] as? String else {
             print("Unabled to retrieve observations")
+            // Return empty dictionary if fail
             return [
                 "location": "",
                 "temperature": "",
@@ -73,6 +74,7 @@ class ObservationRequest {
             ]
         }
         
+        // Set observation into the right dictionary format
         let observations: [String:String] = [
             "location": "\(location)",
             "temperature": "\(FormatPlaceHelper.temperatureToString(from: temperature))",

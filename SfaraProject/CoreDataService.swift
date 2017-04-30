@@ -10,6 +10,13 @@ import Foundation
 import CoreData
 import UIKit
 
+/**
+ *  This class handles everything that needs to be done with Core Data
+ *  and the Observation entity
+ *  Can save, add, and replace observations
+ *  Also is used to retrieve Observations
+ */
+
 class CoreDataService {
     
     static var observationArray = CoreDataService()
