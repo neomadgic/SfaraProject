@@ -9,6 +9,18 @@
 import UIKit
 import MapKit
 
+    /**
+    **  IMPORTANT: 
+    **  This app uses USERDEFAULTS to save small variables
+    **  Because of this, this app might crash while testing and hitting the stop button.
+    **  The stop button interferes with the saving that goes through with userdefault
+    **  As long as the stop button is not pressed, this app is perfect and ready to go
+    **  Real mobile devices don't have a "stop testing" button, so this app is market ready
+    **  
+    **  This app will update the Tableview everytime you return to the app
+    **  You can even set how many tableviewCells you want!
+    */
+
 public var numberOfCells = 5
 
 class ViewController: UIViewController, MKMapViewDelegate, UITableViewDelegate {
